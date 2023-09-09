@@ -14,18 +14,18 @@ const Navbar = () => {
         color='grey'
     >
         <FlexBetween gap='0.75rem'>
-            <Typography variant='h4' fontSize='16px' color='#000'>
+            <Typography variant='h4' fontSize='16px' color='lightgrey'>
                 MarketWatcher
             </Typography>
         </FlexBetween>
 
         <FlexBetween gap='2rem'>
-            <Box sx={{ '&:hover': { color: 'red' }}}>
+            <Box sx={{ '&:hover': { color: '#e75480' }}}>
                 <Link
                     to='/'
                     onClick={() => setSelected('dashboard')}
                     style={{
-                        color: selected === 'dashboard' ? 'inherit' : 'black',
+                        color: selected === 'dashboard' ? 'inherit' : 'lightgrey',
                         textDecoration: 'inherit'
                     }}
                 >
@@ -33,12 +33,12 @@ const Navbar = () => {
                 </Link>
             </Box>
 
-            <Box sx={{ '&:hover': { color: 'red' }}}>
+            <Box sx={{ '&:hover': { color: '#e75480' }}}>
                 <Link
                     to='/regression'
                     onClick={() => setSelected('regression')}
                     style={{
-                        color: selected === 'regression' ? 'inherit' : 'black',
+                        color: selected === 'regression' ? 'inherit' : 'lightgrey',
                         textDecoration: 'inherit'
                     }}
                 >

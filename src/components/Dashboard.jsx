@@ -1,6 +1,10 @@
 import React from 'react'
 import { Box, useMediaQuery } from '@mui/material'
 import ChartBox from './ChartBox'
+import Indices from './indices'
+import Stocks from './stocks'
+import Stock from './stock'
+import History from './history'
 
 const gridTemplateLargeScreens = `
     "a a b b b"
@@ -45,9 +49,10 @@ const Dashboard = () => {
             height='100%'
             display='grid'
             gap='1rem'
+            padding='1rem 1rem'
             sx={
                 isAboveMediumScreens ? {
-                    gridTemplaceColumns: "repeat(3, minmax(370px, 1fr))",
+                    gridTemplaceColumns: "repeat(3, minmax(300px, 1fr))",
                     gridTemplateRows: "repeat(10, minmax(60px, 1fr))",
                     gridTemplateAreas: gridTemplateLargeScreens
                 } : {
@@ -58,19 +63,19 @@ const Dashboard = () => {
             }
         >
             <ChartBox gridArea='b'>
-                Indices
+                <Stock />
             </ChartBox>
 
             <ChartBox gridArea='a'>
-                Stocks
+                <Indices />
             </ChartBox>
 
             <ChartBox gridArea='c'>
-                Selected Stock
+                <Stocks />
             </ChartBox>
 
             <ChartBox gridArea='d'>
-                Historical Data
+                <History />
             </ChartBox>
         </Box>
   )

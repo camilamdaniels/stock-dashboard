@@ -2,7 +2,7 @@ const { Box } = require('@mui/material');
 const { styled } = require('@mui/system');
 
 const ChartBox = styled(Box)(() => ({
-  backgroundColor: 'black',
+  backgroundColor: '#202121',
   borderRadius: '1rem',
   alignItems: 'center',
   justifyContent: 'center',
