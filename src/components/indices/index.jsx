@@ -13,26 +13,27 @@ const columns = [
     // prv close price 
     // percent change
     // amt change
-    {
-        field: 'id',
-        headerName: 'ID',
-        width: 30,
-    },
+    // {
+    //     field: 'id',
+    //     headerName: 'ID',
+    //     width: 30,
+    // },
     {
         field: 'name',
-        headerName: 'Short Name',
+        headerName: 'Name',
         width: 100,
-        editable: true
+        editable: true,
+        cellClassName: 'super-app-theme--cell'
     },
     {
         field: 'lastPrice',
-        headerName: 'Reg Mkt Price',
+        headerName: 'Mkt Price',
         width: 100,
         editable: true
     },
     {
         field: 'previousPrice',
-        headerName: 'Prv Close Price',
+        headerName: 'Prv Close',
         width: 100,
         editable: true
     },
@@ -40,7 +41,15 @@ const columns = [
         field: 'percentChange',
         headerName: '% Change',
         width: 100,
-        editable: true
+        editable: true,
+        cellClassName: (params) => {
+            if (params.value == null) return ''
+
+            return clsx('super-app', {
+                negative: parseFloat(params.value) < 0,
+                positive: parseFloat(params.value) > 0
+            })
+        }
     },
     {
         field: 'priceChange',
@@ -78,6 +87,7 @@ const Indices = () => {
 
                 for (let i=0; i < marketList.length; i++) {
                     // console.log(marketList[i])
+                    console.log(parseFloat(marketList[i].regularMarketChangePercent.fmt))
                     const formatted = formatData(i, marketList[i].shortName, marketList[i].regularMarketPrice.fmt, marketList[i].regularMarketPreviousClose.fmt, marketList[i].regularMarketChangePercent.fmt, marketList[i].regularMarketChange.fmt)
                     // console.log(formatted)
                     formattedList = [...formattedList, formatted]
@@ -98,9 +108,10 @@ const Indices = () => {
     return (
         <ChartBox 
             sx={{ 
-                height: 400, 
+                height: '100%', 
+                width: '100%',
                 "& .MuiDataGrid-root": {
-                    color: '#7f7f7f',
+                    color: '#fff',
                     border: 'none',
                 },
                 "& .MuiDataGrid-cell": {
@@ -110,11 +121,25 @@ const Indices = () => {
                     visibility: "hidden"
                 },
                 "& .MuiDataGrid-columnHeaders": {
-                    color: '#fff',
-                    backgroundColor: 'rgb(231, 84, 128, .3)'
+                    // color: '#fff',
+                    // backgroundColor: 'rgb(231, 84, 128, .3)'
+                    color: '#8884d8',
+                    borderRadius: 0
                 },
-                "& .footer": {
+                "& .MuiDataGrid-footer": {
                     color: '#e75480'
+                },
+                '& .super-app-theme--cell': {
+                    // backgroundColor: 'rgba(136, 132, 216, .7)',
+                    color: '#c4c2ec',
+                },
+                '& .super-app.negative': {
+                    backgroundColor: 'rgba(136, 132, 216, .3)',
+                    color: '#fff',
+                },
+                '& .super-app.positive': {
+                    backgroundColor: 'rgba(255, 255, 255, .1)',
+                    color: '#c4c2ec',
                 }
             }}
         >

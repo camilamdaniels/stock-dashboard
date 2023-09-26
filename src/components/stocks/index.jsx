@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { DataGrid } from '@mui/x-data-grid'
 import { Box } from '@mui/material'
+import ChartBox from '../ChartBox'
 
 const columns = [
     // name
@@ -9,16 +10,17 @@ const columns = [
     // high
     // open
     // volume*
-    {
-        field: 'id',
-        headerName: 'ID',
-        width: 30
-    },
+    // {
+    //     field: 'id',
+    //     headerName: 'ID',
+    //     width: 30
+    // },
     {
         field: 'name',
         headerName: 'Symbol',
         width: 100,
-        editable: true
+        editable: true,
+        cellClassName: 'super-app-theme--cell'
     },
     {
         field: 'close',
@@ -105,10 +107,10 @@ const Stocks = () => {
                             // volume*
                             // console.log('volume: '+res.data.chart.result[0].indicators.quote[0].volume.length)
                             let stockData = res.data.chart.result[0].indicators.quote[0]
-                            console.log(stockData.close[0])
-                            console.log(stockData.high[0])
-                            console.log(stockData.open[0])
-                            console.log(stockData.volume[0])
+                            // console.log(stockData.close[0])
+                            // console.log(stockData.high[0])
+                            // console.log(stockData.open[0])
+                            // console.log(stockData.volume[0])
                             // timestamps = res.data.chart.result[0].timestamp;
                             // console.log('timestamps: '+timestamps.length)
                             // console.log(symbols[i].symbol)
@@ -132,11 +134,13 @@ const Stocks = () => {
     }, [])
     
     return (
-        <Box
+        <ChartBox
             sx={{ 
-                height: 400, 
+                borderRadius: 0,
+                height: '100%', 
+                width: '100%',
                 "& .MuiDataGrid-root": {
-                    color: '#7f7f7f',
+                    color: '#fff',
                     border: 'none',
                 },
                 "& .MuiDataGrid-cell": {
@@ -146,11 +150,16 @@ const Stocks = () => {
                     visibility: "hidden"
                 },
                 "& .MuiDataGrid-columnHeaders": {
-                    color: '#fff',
-                    backgroundColor: 'rgb(231, 84, 128, .3)'
+                    color: '#8884D8',
+                    // backgroundColor: '#8884d8',
+                    borderRadius: 0
                 },
                 "& .footer": {
-                    color: '#e75480'
+                    color: '#fff'
+                },
+                '& .super-app-theme--cell': {
+                    // backgroundColor: 'rgba(136, 132, 216, .7)',
+                    color: '#c4c2ec',
                 }
             }}
         >
@@ -160,14 +169,14 @@ const Stocks = () => {
                 initialState={{
                     pagination: {
                         paginationModel: {
-                            pageSize: 5
+                            pageSize: 10
                         }
                     }
                 }}
-                pageSizeOptions={[5]}
+                pageSizeOptions={[10]}
                 disableRowSelectionOnClick
             />
-        </Box>
+        </ChartBox>
     )
 }
 

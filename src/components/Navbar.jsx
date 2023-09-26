@@ -7,20 +7,26 @@ import AcUnitIcon from '@mui/icons-material/AcUnit'
 const Navbar = () => {
     const [selected, setSelected] = useState('dashboard')
 
+    const today = new Date()
+    const date = today.getFullYear() + '/' + (today.getMonth() + 1) + '/' + today.getDate();
+
   return (
     <FlexBetween
         mb='0.25rem'
         p='1rem 1rem'
         color='grey'
     >
-        <FlexBetween gap='0.75rem'>
+        <FlexBetween gap='2rem'>
             <Typography variant='h4' fontSize='16px' color='lightgrey'>
                 MarketWatcher
+            </Typography>
+            <Typography variant='h4' fontSize='16px' color='lightgrey'>
+                {date}
             </Typography>
         </FlexBetween>
 
         <FlexBetween gap='2rem'>
-            <Box sx={{ '&:hover': { color: '#e75480' }}}>
+            <Box sx={{ '&:hover': { color: '#8884d8' }}}>
                 <Link
                     to='/'
                     onClick={() => setSelected('dashboard')}
@@ -33,7 +39,7 @@ const Navbar = () => {
                 </Link>
             </Box>
 
-            <Box sx={{ '&:hover': { color: '#e75480' }}}>
+            <Box sx={{ '&:hover': { color: '#8884d8' }}}>
                 <Link
                     to='/regression'
                     onClick={() => setSelected('regression')}
