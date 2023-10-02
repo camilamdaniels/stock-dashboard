@@ -123,7 +123,7 @@ const Indices = () => {
                 "& .MuiDataGrid-columnHeaders": {
                     // color: '#fff',
                     // backgroundColor: 'rgb(231, 84, 128, .3)'
-                    color: '#8884d8',
+                    color: '#ff80ff',
                     borderRadius: 0
                 },
                 "& .MuiDataGrid-footer": {
@@ -131,18 +131,21 @@ const Indices = () => {
                 },
                 '& .super-app-theme--cell': {
                     // backgroundColor: 'rgba(136, 132, 216, .7)',
-                    color: '#c4c2ec',
+                    color: '#ffccff',
                 },
                 '& .super-app.negative': {
-                    backgroundColor: 'rgba(136, 132, 216, .3)',
+                    backgroundColor: 'rgba(255, 204, 255, .1)',
                     color: '#fff',
                 },
                 '& .super-app.positive': {
-                    backgroundColor: 'rgba(255, 255, 255, .1)',
-                    color: '#c4c2ec',
-                }
+                    backgroundColor: 'rgba(255, 204, 255, .2)',
+                    color: '#ff80ff',
+                },
+                display: 'flex',
+                flexDirection: 'column',
             }}
-        >
+        >   
+            <Box sx={{ ml: '2rem', mt: '1rem', color: 'lightgrey', textAlign: 'left', fontStyle: 'italic' }} width='100%'>Indices</Box>
             <DataGrid
                 rows={data || []}
                 columns={columns}

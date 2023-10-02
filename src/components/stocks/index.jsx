@@ -150,7 +150,7 @@ const Stocks = () => {
                     visibility: "hidden"
                 },
                 "& .MuiDataGrid-columnHeaders": {
-                    color: '#8884D8',
+                    color: '#ff80ff',
                     // backgroundColor: '#8884d8',
                     borderRadius: 0
                 },
@@ -159,10 +159,13 @@ const Stocks = () => {
                 },
                 '& .super-app-theme--cell': {
                     // backgroundColor: 'rgba(136, 132, 216, .7)',
-                    color: '#c4c2ec',
-                }
+                    color: '#ffccff',
+                },
+                display: 'flex',
+                flexDirection: 'column'
             }}
         >
+            <Box width='100%' height='20px' sx={{ ml: '2rem', mt: '1rem', color: 'lightgrey', textAlign: 'left', fontStyle: 'italic' }}>Stocks</Box>
             <DataGrid 
                 rows={data || []}
                 columns={columns}

@@ -26,12 +26,12 @@ const Navbar = () => {
         </FlexBetween>
 
         <FlexBetween gap='2rem'>
-            <Box sx={{ '&:hover': { color: '#8884d8' }}}>
+            <Box sx={{ '&:hover': { color: '#ff80ff	' }}}>
                 <Link
                     to='/'
                     onClick={() => setSelected('dashboard')}
                     style={{
-                        color: selected === 'dashboard' ? 'inherit' : 'lightgrey',
+                        color: selected === 'dashboard' ? '#ff80ff' : 'lightgrey',
                         textDecoration: 'inherit'
                     }}
                 >
@@ -39,12 +39,12 @@ const Navbar = () => {
                 </Link>
             </Box>
 
-            <Box sx={{ '&:hover': { color: '#8884d8' }}}>
+            <Box sx={{ '&:hover': { color: '#ff80ff	' }}}>
                 <Link
                     to='/regression'
                     onClick={() => setSelected('regression')}
                     style={{
-                        color: selected === 'regression' ? 'inherit' : 'lightgrey',
+                        color: selected === 'regression' ? '#ff80ff' : 'lightgrey',
                         textDecoration: 'inherit'
                     }}
                 >

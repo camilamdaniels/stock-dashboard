@@ -125,7 +125,7 @@ const History = () => {
                             <Label value="avg price" offset={0} position="insideBottom" />
                         </XAxis>
                         <YAxis dataKey='name' stroke='white' type='category' tickLine={false} axisLine={false}/>
-                        <Bar dataKey='amt' fill='#8884d8'/>
+                        <Bar dataKey='amt' fill='#ff80ff'/>
                     </BarChart>
                 </ResponsiveContainer>
                 <ResponsiveContainer height='100%'>
@@ -137,7 +137,7 @@ const History = () => {
                             <Label value="avg change" offset={0} position="insideBottom" />
                         </XAxis>
                         <YAxis dataKey='name' stroke='white' type='category' tickLine={false} axisLine={false}/>
-                        <Bar dataKey='amt' fill='#8884d8'/>
+                        <Bar dataKey='amt' fill='#ff80ff'/>
                     </BarChart>
                 </ResponsiveContainer>
                 <ResponsiveContainer height='100%'>
@@ -151,7 +151,7 @@ const History = () => {
                         </XAxis>
                         <YAxis dataKey='name' stroke='white' type='category' tickLine={false} axisLine={false}/>
                         {/* <Bar dataKey='pv' fill='#884d8' label={{ position: 'left' }}/> */}
-                        <Bar dataKey='amt' fill='#8884d8'/>
+                        <Bar dataKey='amt' fill='#ff80ff'/>
                     </BarChart>
                 </ResponsiveContainer>
         </>

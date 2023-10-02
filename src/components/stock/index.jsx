@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { Bar, BarChart, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ComposedChart } from 'recharts'
+import { Bar, BarChart, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ComposedChart, Label } from 'recharts'
 import { 
     Box,
     InputLabel,
@@ -101,8 +101,8 @@ const Stock = () => {
             console.error(err)
         })
         // setData([...data, formatted])
-        console.log(data)
-        console.log(formatted)
+        // console.log(data)
+        // console.log(formatted)
     }, [stock])
 
     return (
@@ -112,7 +112,7 @@ const Stock = () => {
                 mb='0.25rem'
                 p='1rem 1rem'
             >
-                <FlexBetween gap='2rem' color='lightgray'>
+                <FlexBetween gap='2rem' color='lightgray' sx={{ fontStyle: 'italic' }}>
                     90-Day Summary
                 </FlexBetween>
 
@@ -141,10 +141,10 @@ const Stock = () => {
                 
             </FlexBetween>
             
-            <ResponsiveContainer width="100%" height={800}>
+            <ResponsiveContainer width="100%" height={250}>
                 <LineChart
                     width={500}
-                    height={300}
+                    height={500}
                     data={data}
                     margin={{
                         top: 5,
@@ -158,8 +158,8 @@ const Stock = () => {
                         <YAxis stroke='white' domain={[100, 250]} axisLine={false} tickLine={false}/>
                         <Tooltip />
                         {/* <Legend /> */}
-                        <Line type="monotone" dataKey="high" stroke='#8884d8' dot={false}/>
-                        <Line type="monotone" dataKey="low" stroke="#aca9e4" dot={false} />
+                        <Line type="monotone" dataKey="high" stroke='#ff80ff' dot={false}/>
+                        <Line type="monotone" dataKey="low" stroke="#ffb3ff" dot={false} />
                     </LineChart>
                 </ResponsiveContainer>
                 <ResponsiveContainer width="100%" height={200}>
@@ -175,11 +175,12 @@ const Stock = () => {
                         }}
                     >
                         <CartesianGrid vertical={false} horizontal={false} />
-                        <XAxis dataKey="name" axisLine={false} tick={false}/>
+                        <XAxis dataKey="name" axisLine={false} tick={false}>
+                        </XAxis>
                         <YAxis stroke='white' axisLine={false} tickLine={false}/>
                         <Tooltip />
-                        <Bar dataKey="high" fill='#8884d8' />
-                        <Bar dataKey="low" fill="#aca9e4" />
+                        <Bar dataKey="high" fill='#ff80ff' />
+                        <Bar dataKey="low" fill="#ffb3ff" />
                     </BarChart>
                 </ResponsiveContainer>
                 {/* <ResponsiveContainer width="100%" height={200}>
