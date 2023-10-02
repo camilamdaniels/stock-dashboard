@@ -28,7 +28,7 @@ const Navbar = () => {
         <FlexBetween gap='2rem'>
             <Box sx={{ '&:hover': { color: '#ff80ff	' }}}>
                 <Link
-                    to='/'
+                    to='/stock-dashboard'
                     onClick={() => setSelected('dashboard')}
                     style={{
                         color: selected === 'dashboard' ? '#ff80ff' : 'lightgrey',

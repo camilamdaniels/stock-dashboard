@@ -12,7 +12,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route 
-            path='/'
+            path='/stock-dashboard'
             element={<Dashboard />}
           />
           <Route 
